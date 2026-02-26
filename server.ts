@@ -6,6 +6,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import AuthRouter from "./routes/AuthRoutes";
 import ThumbnailRouter from "./routes/ThumbnailRoutes";
+import UserRouter from "./routes/UserRoutes";
 
 declare module "express-session" {
   interface SessionData {
@@ -44,6 +45,7 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use("/api/auth", AuthRouter);
 app.use("/api/thumbnail", ThumbnailRouter);
+app.use("/api/user", UserRouter);
 
 const startServer = async () => {
   try {
